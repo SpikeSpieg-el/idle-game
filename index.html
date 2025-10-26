@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сердца Деревни</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="game-container">
+        <!-- Верхняя панель с ресурсами -->
+        <header class="game-header">
+            <button id="toggle-resources" class="header-toggle" aria-expanded="false">Ресурсы ⌄</button>
+            <div id="recent-resources" class="recent-resources"></div>
+            <button id="reset-save-button" class="header-reset-button" title="Сбросить сохранение">🔄</button>
+            <div id="resource-panel" class="resource-panel">
+                <div id="resource-list" class="resource-list"></div>
+            </div>
+        </header>
+        <div id="resource-backdrop" class="resource-backdrop hidden"></div>
+
+        <!-- Основной контент игры -->
+        <main class="game-main">
+            <!-- Экран деревни -->
+            <section id="village-view" class="view active-view">
+                <h2>Ваша деревня</h2>
+                <div id="active-tasks-container"></div>
+                <div id="girls-list-container"></div>
+                <div class="summon-section">
+                    <!-- ИЗМЕНЕНО: Убрали эмодзи из кнопки -->
+                    <button id="summon-button" class="action-button">
+                        Провести «Зов Сердца» (Стоит 1 <span class="inline-crystal-icon"></span>)
+                    </button>
+                    <div class="drop-rates-info">
+                        <h4>Шансы выпадения:</h4>
+                        <div class="drop-rates-list">
+                            <div class="drop-rate-item"><span class="rarity-badge rarity-3">3★</span><span class="drop-percentage">70%</span></div>
+                            <div class="drop-rate-item"><span class="rarity-badge rarity-4">4★</span><span class="drop-percentage">25%</span></div>
+                            <div class="drop-rate-item"><span class="rarity-badge rarity-5">5★</span><span class="drop-percentage">4%</span></div>
+                            <div class="drop-rate-item"><span class="rarity-badge rarity-6">6★</span><span class="drop-percentage">1%</span></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Экран карты -->
+            <section id="map-view" class="view">
+                <h2>Карта и Экспедиции</h2>
+                <div id="expedition-panel">
+                    <!-- Обычные экспедиции -->
+                    <div class="exp-section">
+                        <h3>Сбор ресурсов</h3>
+                        <div class="exp-row">
+                            <div class="exp-col">
+                                <div class="exp-girls" id="expedition-girls-list"></div>
+                            </div>
+                            <div class="exp-col">
+                                <h3>Настройки экспедиции</h3>
+                                <div class="exp-controls">
+                                    <label>Ресурс
+                                        <select id="expedition-resource">
+                                            <option value="auto">Авто</option>
+                                            <option value="wood">Дерево</option>
+                                            <option value="stone">Камень</option>
+                                            <option value="esense">Эссенция</option>
+                                            <option value="iron_ore">Железная руда</option>
+                                            <option value="herbs">Целебные травы</option>
+                                            <option value="hides">Охота на зверей</option>
+                                            <option value="ancient_relics">Древние артефакты</option>
+                                            <option value="gems">Драгоценные камни</option>
+                                        </select>
+                                    </label>
+                                    <label>Дальность
+                                        <select id="expedition-distance">
+                                            <option value="near">Близко (×1.0)</option>
+                                            <option value="medium" selected>Средне (×1.5)</option>
+                                            <option value="far">Далеко (×2.2)</option>
+                                            <option value="very_far">Очень далеко (×3.5)</option>
+                                            <option value="extremely_far">Очень очень далеко (×5.0)</option>
+                                        </select>
+                                    </label>
+                                    <label>Длительность сбора
+                                        <select id="expedition-duration">
+                                            <option value="30000">30с</option>
+                                            <option value="60000" selected>60с</option>
+                                            <option value="120000">120с</option>
+                                            <option value="180000">180с</option>
+                                            <option value="240000">240с</option>
+                                            <option value="300000">300с</option>
+                                            <option value="360000">360с</option>
+                                            <option value="420000">420с</option>
+                                            <option value="480000">480с</option>
+                                            <option value="540000">540с</option>
+                                            <option value="600000">600с</option>
+                                        </select>
+                                    </label>
+                                    <button id="start-expedition" class="action-button">Отправить</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="exp-section">
+                        <h3>Поиск еды (5с)</h3>
+                        <div class="exp-row">
+                            <div class="exp-col">
+                                <div id="food-expedition-girl-list" class="exp-girls"></div>
+                            </div>
+                            <div class="exp-col">
+                                <div class="exp-controls">
+                                    <button id="start-food-expedition" class="action-button">Искать еду</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Точки разведки -->
+                    <div class="exp-section">
+                        <h3>⚔️ Точки разведки (Опасные экспедиции)</h3>
+                        <div class="exp-subsection">
+                            <div class="subheader" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                                <h4 style="margin:0;">Обычные точки</h4>
+                                <button id="toggle-scout-points-regular" class="header-toggle" aria-expanded="true">Свернуть</button>
+                            </div>
+                            <div id="scout-points-regular-container" class="scout-points-grid"></div>
+                        </div>
+                        <div class="exp-subsection" style="margin-top:12px;">
+                            <div class="subheader" style="display:flex; align-items:center; justify-content:space-between; gap:8px;">
+                                <h4 style="margin:0;">Поиск экипировки</h4>
+                                <button id="toggle-scout-points-equipment" class="header-toggle" aria-expanded="true">Свернуть</button>
+                            </div>
+                            <div id="scout-points-equipment-container" class="scout-points-grid"></div>
+                        </div>
+                    </div>
+                    
+                </div>
+            </section>
+
+            <!-- Экран крафта -->
+            <section id="crafting-view" class="view">
+                <h2>Производство</h2>
+                <div id="active-tasks-container-craft"></div>
+                <div class="crafting-section">
+                    <div class="craft-controls">
+                        <input type="text" id="recipe-search" class="search-input" placeholder="🔍 Поиск рецепта...">
+                        <select id="recipe-category" class="filter-select">
+                            <option value="all">Все категории</option>
+                            <option value="materials">Материалы</option>
+                            <option value="consumables">Еда</option>
+                            <option value="potions">Зелья</option>
+                            <option value="equipment">Снаряжение</option>
+                            <option value="magic">Магия</option>
+                        </select>
+                        <select id="recipe-type" class="filter-select">
+                            <option value="all">Все типы</option>
+                            <option value="workshop">Мастерская</option>
+                            <option value="alchemy">Алхимия</option>
+                        </select>
+                        <select id="recipe-sort" class="filter-select">
+                            <option value="name">По названию</option>
+                            <option value="tier">По уровню</option>
+                            <option value="time">По времени</option>
+                            <option value="available">Доступные</option>
+                        </select>
+                    </div>
+                    <div id="workshop-recipes" class="recipes-container"></div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Нижняя навигационная панель -->
+        <footer class="game-footer">
+            
+            <button class="nav-button active" data-view="village-view">
+                <span class="nav-icon icon-village"></span>
+                <span class="nav-text">Деревня</span>
+            </button>
+            <button class="nav-button" data-view="map-view">
+                <span class="nav-icon icon-map"></span>
+                <span class="nav-text">Карта</span>
+            </button>
+            <button class="nav-button" data-view="crafting-view">
+                <span class="nav-icon icon-craft"></span>
+                <span class="nav-text">Крафт</span>
+            </button>
+        </footer>
+    </div>
+
+    <!-- Модальные окна без изменений -->
+    <div id="girl-modal" class="modal-overlay hidden">
+        <div class="modal-content"><button class="modal-close-button">&times;</button><div id="modal-body"></div></div>
+    </div>
+    <div id="girl-selection-modal" class="modal-overlay hidden">
+        <div class="modal-content"><button class="modal-close-button">&times;</button><div id="girl-selection-body"><h3>Выберите исполнителя</h3><div id="modal-girl-list"></div></div></div>
+    </div>
+    <div id="level-modal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <button class="modal-close-button">&times;</button>
+            <div id="level-modal-body"></div>
+        </div>
+    </div>
+    
+    <!-- НОВОЕ: Модальное окно для кастомных уведомлений -->
+    <div id="custom-alert-overlay" class="modal-overlay hidden">
+        <div class="custom-alert-content">
+            <p id="custom-alert-message"></p>
+            <button id="custom-alert-close" class="action-button">Понятно</button>
+        </div>
+    </div>
+    
+    <!-- Модальное окно информации о ресурсе -->
+    <div id="resource-info-modal" class="modal-overlay hidden">
+        <div class="modal-content resource-info-content">
+            <button class="modal-close-button">&times;</button>
+            <div id="resource-info-body"></div>
+        </div>
+    </div>
+
+    <!-- Экран загрузки без изменений -->
+    <div id="loading-screen"><div class="spinner"></div><p>Загрузка данных...</p></div>
+
+    <script src="leveling.js"></script>
+    <script src="equipment.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

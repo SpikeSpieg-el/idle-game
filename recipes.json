@@ -1,0 +1,202 @@
+{
+  "planks": {
+    "name": "Доски",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 8000,
+    "requires": { "wood": 5 },
+    "produces": { "planks": 3 }
+  },
+  "stone_bricks": {
+    "name": "Каменные блоки",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 12000,
+    "requires": { "stone": 8 },
+    "produces": { "stone_bricks": 4 }
+  },
+  "iron_ingot": {
+    "name": "Железные слитки",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 18000,
+    "requires": { "iron_ore": 4 },
+    "produces": { "iron_ingot": 2 }
+  },
+  "leather": {
+    "name": "Выделка кожи",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 16000,
+    "requires": { "hides": 3 },
+    "produces": { "leather": 2 }
+  },
+  "herb_extract": {
+    "name": "Травяной экстракт",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 12000,
+    "requires": { "herbs": 5 },
+    "produces": { "herb_extract": 3 }
+  },
+  "magic_dust_base": {
+    "name": "Магическая пыль",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 15000,
+    "requires": { "esense": 8 },
+    "produces": { "magic_dust": 4 }
+  },
+  "prepared_food": {
+    "name": "Готовая еда",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "consumables",
+    "tier": 1,
+    "baseTime": 10000,
+    "requires": { "dry_food": 8 },
+    "produces": { "food": 4 }
+  },
+  "steel": {
+    "name": "Сталь",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 2,
+    "baseTime": 35000,
+    "requires": { "iron_ingot": 3, "planks": 4 },
+    "produces": { "steel": 1 }
+  },
+  "rope": {
+    "name": "Верёвка",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 14000,
+    "requires": { "leather": 2, "planks": 2 },
+    "produces": { "rope": 3 }
+  },
+  "paper": {
+    "name": "Бумага",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 1,
+    "baseTime": 10000,
+    "requires": { "planks": 4 },
+    "produces": { "paper": 5 }
+  },
+  "glass": {
+    "name": "Стекло",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "materials",
+    "tier": 2,
+    "baseTime": 20000,
+    "requires": { "stone": 10, "esense": 2 },
+    "produces": { "glass": 2 }
+  },
+  "healing_potion": {
+    "name": "Зелье лечения",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "potions",
+    "tier": 2,
+    "baseTime": 20000,
+    "requires": { "herb_extract": 2, "magic_dust": 2 },
+    "produces": { "healing_potion": 1 }
+  },
+  "mana_potion": {
+    "name": "Зелье маны",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "potions",
+    "tier": 2,
+    "baseTime": 22000,
+    "requires": { "magic_dust": 3, "glass": 1 },
+    "produces": { "mana_potion": 1 }
+  },
+  "tools": {
+    "name": "Инструменты",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "equipment",
+    "tier": 2,
+    "baseTime": 25000,
+    "requires": { "iron_ingot": 3, "planks": 2, "rope": 1 },
+    "produces": { "tools": 1 }
+  },
+  "amulet_core": {
+    "name": "Ядро амулета",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "magic",
+    "tier": 2,
+    "baseTime": 28000,
+    "requires": { "glass": 1, "magic_dust": 4, "gems": 1 },
+    "produces": { "amulet_core": 1 }
+  },
+  "greater_healing_potion": {
+    "name": "Большое зелье лечения",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "potions",
+    "tier": 3,
+    "baseTime": 30000,
+    "requires": { "healing_potion": 2, "herb_extract": 2, "ancient_relics": 1 },
+    "produces": { "greater_healing_potion": 1 }
+  },
+  "elixir_power": {
+    "name": "Эликсир силы",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "potions",
+    "tier": 3,
+    "baseTime": 35000,
+    "requires": { "mana_potion": 1, "steel": 1, "magic_dust": 5 },
+    "produces": { "elixir_power": 1 }
+  },
+  "charged_amulet_core": {
+    "name": "Заряженное ядро амулета",
+    "type": "alchemy",
+    "stat": "alchemy_speed",
+    "category": "magic",
+    "tier": 3,
+    "baseTime": 40000,
+    "requires": { "amulet_core": 1, "mana_potion": 1, "ancient_relics": 2 },
+    "produces": { "charged_amulet_core": 1 }
+  },
+  "gem_cutting": {
+    "name": "Огранка камней",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "magic",
+    "tier": 2,
+    "baseTime": 32000,
+    "requires": { "gems": 5, "tools": 1, "paper": 3, "esense": 10 },
+    "produces": { "crystals": 1 }
+  },
+  "fancy_amulet": {
+    "name": "Амулет Призыва",
+    "type": "workshop",
+    "stat": "craft_speed",
+    "category": "magic",
+    "tier": 3,
+    "baseTime": 80000,
+    "requires": { "stone_bricks": 15, "planks": 20, "charged_amulet_core": 1, "ancient_relics": 3, "gems": 5 },
+    "produces": { "crystals": 1 }
+  }
+}

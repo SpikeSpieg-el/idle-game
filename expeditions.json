@@ -1,0 +1,346 @@
+{
+  "distances": {
+    "near": {
+      "name": "Близко",
+      "travelTimeMs": 5000,
+      "multiplier": 1.0,
+      "foodCostMultiplier": 1.0
+    },
+    "medium": {
+      "name": "Средне",
+      "travelTimeMs": 15000,
+      "multiplier": 1.5,
+      "foodCostMultiplier": 1.5
+    },
+    "far": {
+      "name": "Далеко",
+      "travelTimeMs": 30000,
+      "multiplier": 2.2,
+      "foodCostMultiplier": 2.0
+    },
+    "very_far": {
+      "name": "Очень далеко",
+      "travelTimeMs": 60000,
+      "multiplier": 3.5,
+      "foodCostMultiplier": 3.0
+    },
+    "extremely_far": {
+      "name": "Очень очень далеко",
+      "travelTimeMs": 120000,
+      "multiplier": 5.0,
+      "foodCostMultiplier": 5.0
+    }
+  },
+  "scoutPoints": {
+    "equipment_dungeon_1": {
+      "name": "Заброшенный лагерь",
+      "description": "Старый лагерь с простой экипировкой",
+      "backgroundImage": "bg/camp.png",
+      "minGirls": 1,
+      "requiredProfessions": [],
+      "requiredResources": { "dry_food": 10 },
+      "travelTimeMs": 15000,
+      "gatherDuration": 45000,
+      "difficulty": 1,
+      "isEquipmentExpedition": true,
+      "equipmentDropChance": 0.6,
+      "rewards": {
+        "wood": { "min": 5, "max": 10 },
+        "stone": { "min": 3, "max": 7 }
+      }
+    },
+    "equipment_dungeon_2": {
+      "name": "Разрушенная казарма",
+      "description": "Остатки военной казармы с базовой экипировкой",
+      "backgroundImage": "bg/barracks.png",
+      "minGirls": 2,
+      "requiredProfessions": ["воин"],
+      "requiredResources": { "rope": 2, "tools": 1, "dry_food": 15 },
+      "travelTimeMs": 25000,
+      "gatherDuration": 60000,
+      "difficulty": 2,
+      "isEquipmentExpedition": true,
+      "equipmentDropChance": 0.7,
+      "rewards": {
+        "iron_ore": { "min": 3, "max": 8 },
+        "stone": { "min": 5, "max": 12 }
+      }
+    },
+    "equipment_dungeon_3": {
+      "name": "Подземелье Экипировки",
+      "description": "Опасное подземелье с качественной экипировкой",
+      "backgroundImage": "bg/dungeon.png",
+      "minGirls": 2,
+      "requiredProfessions": ["воин"],
+      "requiredResources": { "rope": 4, "tools": 3, "dry_food": 20 },
+      "travelTimeMs": 35000,
+      "gatherDuration": 75000,
+      "difficulty": 3,
+      "isEquipmentExpedition": true,
+      "equipmentDropChance": 0.75,
+      "rewards": {
+        "iron_ore": { "min": 5, "max": 12 },
+        "stone": { "min": 8, "max": 15 },
+        "gems": { "min": 1, "max": 2 }
+      }
+    },
+    "equipment_dungeon_4": {
+      "name": "Оружейная мастерская",
+      "description": "Древняя мастерская с редкой экипировкой",
+      "backgroundImage": "bg/workshop.png",
+      "minGirls": 3,
+      "requiredProfessions": ["воин", "кузне"],
+      "requiredResources": { "rope": 6, "tools": 4, "iron_ore": 5, "dry_food": 25 },
+      "travelTimeMs": 45000,
+      "gatherDuration": 90000,
+      "difficulty": 4,
+      "isEquipmentExpedition": true,
+      "equipmentDropChance": 0.8,
+      "rewards": {
+        "iron_ore": { "min": 8, "max": 18 },
+        "stone": { "min": 10, "max": 20 },
+        "gems": { "min": 2, "max": 4 }
+      }
+    },
+    "equipment_dungeon_5": {
+      "name": "Арсенал рыцарей",
+      "description": "Легендарный арсенал с мощной экипировкой",
+      "backgroundImage": "bg/arsenal.png",
+      "minGirls": 4,
+      "requiredProfessions": ["воин", "кузне", "маг"],
+      "requiredResources": { "rope": 8, "tools": 6, "iron_ore": 10, "leather": 5, "dry_food": 30 },
+      "travelTimeMs": 60000,
+      "gatherDuration": 120000,
+      "difficulty": 5,
+      "isEquipmentExpedition": true,
+      "equipmentDropChance": 0.85,
+      "rewards": {
+        "iron_ore": { "min": 12, "max": 25 },
+        "stone": { "min": 15, "max": 30 },
+        "gems": { "min": 3, "max": 6 },
+        "esense": { "min": 5, "max": 10 }
+      }
+    },
+    "equipment_dungeon_6": {
+      "name": "Сокровищница героев",
+      "description": "Мифическая сокровищница с эпической экипировкой",
+      "backgroundImage": "bg/treasury.png",
+      "minGirls": 5,
+      "requiredProfessions": ["воин", "кузне", "маг", "целит"],
+      "requiredResources": { "rope": 12, "tools": 8, "iron_ore": 15, "leather": 8, "gems": 3, "dry_food": 40, "healing_potion": 2 },
+      "travelTimeMs": 80000,
+      "gatherDuration": 150000,
+      "difficulty": 6,
+      "isEquipmentExpedition": true,
+      "equipmentDropChance": 0.9,
+      "rewards": {
+        "iron_ore": { "min": 20, "max": 40 },
+        "stone": { "min": 25, "max": 50 },
+        "gems": { "min": 5, "max": 12 },
+        "esense": { "min": 10, "max": 20 },
+        "ancient_relics": { "min": 2, "max": 5 }
+      }
+    },
+    "equipment_dungeon_test": {
+    "name": "Тестовая зона экипировки",
+    "description": "Тестовая локация для проверки дропа экипировки (время прохождения 1 минута)",
+    "backgroundImage": "bg/test_zone.png",
+    "minGirls": 1,
+    "requiredProfessions": [],
+    "requiredResources": { "dry_food": 1 },
+    "travelTimeMs": 5000,
+    "gatherDuration": 6000,
+    "difficulty": 1,
+    "isEquipmentExpedition": true,
+    "equipmentDropChance": 1.0,
+    "rewards": {
+      "wood": { "min": 1, "max": 2 }
+  }
+    },
+    
+    "ancient_ruins": {
+      "name": "Древние руины",
+      "description": "Таинственные развалины полные артефактов",
+      "backgroundImage": "bg/ruins.png",
+      "minGirls": 3,
+      "requiredProfessions": ["археол", "маг", "учён"],
+      "requiredResources": { "rope": 5, "tools": 2, "dry_food": 20 },
+      "travelTimeMs": 45000,
+      "gatherDuration": 90000,
+      "rewards": {
+        "ancient_relics": { "min": 3, "max": 8 },
+        "gems": { "min": 1, "max": 3 },
+        "esense": { "min": 5, "max": 15 }
+      }
+    },
+    "crystal_cave": {
+      "name": "Кристальная пещера",
+      "description": "Опасная пещера с драгоценными камнями",
+      "backgroundImage": "bg/crystal_cave.png",
+      "minGirls": 4,
+      "requiredProfessions": ["горня", "шахт", "кузне"],
+      "requiredResources": { "tools": 3, "rope": 8, "dry_food": 25 },
+      "travelTimeMs": 50000,
+      "gatherDuration": 120000,
+      "rewards": {
+        "gems": { "min": 5, "max": 12 },
+        "stone": { "min": 20, "max": 40 },
+        "iron_ore": { "min": 8, "max": 15 }
+      }
+    },
+    "haunted_forest": {
+      "name": "Проклятый лес",
+      "description": "Темный лес с редкими травами и зверями",
+      "backgroundImage": "bg/haunted_forest.png",
+      "minGirls": 3,
+      "requiredProfessions": ["охот", "травн", "собир"],
+      "requiredResources": { "rope": 4, "dry_food": 18, "planks": 10 },
+      "travelTimeMs": 35000,
+      "gatherDuration": 80000,
+      "rewards": {
+        "herbs": { "min": 10, "max": 25 },
+        "hides": { "min": 6, "max": 15 },
+        "wood": { "min": 15, "max": 30 }
+      }
+    },
+    "forgotten_mine": {
+      "name": "Забытая шахта",
+      "description": "Глубокая шахта богатая металлами",
+      "backgroundImage": "bg/mine.png",
+      "minGirls": 4,
+      "requiredProfessions": ["шахт", "кузне", "инжен"],
+      "requiredResources": { "tools": 4, "rope": 10, "planks": 15, "dry_food": 30 },
+      "travelTimeMs": 55000,
+      "gatherDuration": 150000,
+      "rewards": {
+        "iron_ore": { "min": 15, "max": 30 },
+        "stone": { "min": 25, "max": 50 },
+        "gems": { "min": 2, "max": 5 }
+      }
+    },
+    "mystic_sanctuary": {
+      "name": "Мистическое святилище",
+      "description": "Источник магической энергии",
+      "backgroundImage": "bg/sanctuary.png",
+      "minGirls": 3,
+      "requiredProfessions": ["маг", "жриц", "алхим"],
+      "requiredResources": { "paper": 10, "herbs": 15, "dry_food": 20 },
+      "travelTimeMs": 40000,
+      "gatherDuration": 100000,
+      "rewards": {
+        "esense": { "min": 15, "max": 35 },
+        "ancient_relics": { "min": 2, "max": 5 },
+        "magic_dust": { "min": 5, "max": 12 }
+      }
+    },
+    "dragon_peak": {
+      "name": "Драконий пик",
+      "description": "Опаснейшая вершина с легендарными сокровищами",
+      "backgroundImage": "bg/dragon_peak.png",
+      "minGirls": 5,
+      "requiredProfessions": ["воин", "маг", "целит"],
+      "requiredResources": { "tools": 5, "rope": 15, "leather": 10, "dry_food": 40, "healing_potion": 3 },
+      "travelTimeMs": 80000,
+      "gatherDuration": 180000,
+      "rewards": {
+        "ancient_relics": { "min": 5, "max": 12 },
+        "gems": { "min": 8, "max": 18 },
+        "esense": { "min": 20, "max": 40 },
+        "iron_ore": { "min": 10, "max": 20 }
+      }
+    }
+  },
+  "modes": {
+    "auto": {
+      "name": "Авто",
+      "autoChoices": ["wood", "stone", "iron_ore", "herbs"],
+      "tickMs": 2000
+    },
+    "wood": {
+      "name": "Дерево",
+      "resourceKey": "wood",
+      "tickMs": 2500,
+      "baseGainPerGirl": 0.8,
+      "statWeights": { "harvest": 25 },
+      "professionBonusKeywords": ["сад", "собир", "пчелов"],
+      "upfrontFoodPerGirl": 4
+    },
+    "stone": {
+      "name": "Камень",
+      "resourceKey": "stone",
+      "tickMs": 2500,
+      "baseGainPerGirl": 0.7,
+      "statWeights": { "repair": 25 },
+      "professionBonusKeywords": ["кузне", "инжен"],
+      "upfrontFoodPerGirl": 5
+    },
+    "dry_food": {
+      "name": "Сухая еда",
+      "resourceKey": "dry_food",
+      "tickMs": 2000,
+      "fixedDurationMs": 5000,
+      "baseGainPerGirl": 1.2,
+      "statWeights": { "harvest": 20 },
+      "professionBonusKeywords": ["сад", "собир", "пчелов"],
+      "allowedProfessions": ["собира", "рыбак", "охот"]
+    },
+    "esense": {
+      "name": "Эссенция",
+      "resourceKey": "esense",
+      "tickMs": 3000,
+      "baseGainPerGirl": 0.6,
+      "statWeights": { "magic": 30 },
+      "professionBonusKeywords": ["алхим", "маг", "жриц", "орак"],
+      "upfrontFoodPerGirl": 6
+    },
+    "iron_ore": {
+      "name": "Железная руда",
+      "resourceKey": "iron_ore",
+      "tickMs": 3000,
+      "baseGainPerGirl": 0.6,
+      "statWeights": { "repair": 20, "strength": 20 },
+      "professionBonusKeywords": ["кузне", "шахт", "горня"],
+      "upfrontFoodPerGirl": 7
+    },
+    "herbs": {
+      "name": "Целебные травы",
+      "resourceKey": "herbs",
+      "tickMs": 2200,
+      "baseGainPerGirl": 0.9,
+      "statWeights": { "harvest": 20, "luck": 35 },
+      "professionBonusKeywords": ["алхим", "травн", "собир", "целит"],
+      "upfrontFoodPerGirl": 5
+    },
+    "hides": {
+      "name": "Охота на зверей",
+      "resourceKey": "hides",
+      "tickMs": 2800,
+      "baseGainPerGirl": 0.7,
+      "statWeights": { "strength": 20, "luck": 25, "defense": 20 },
+      "professionBonusKeywords": ["охот", "воин", "следоп"],
+      "upfrontFoodPerGirl": 7
+    },
+    "ancient_relics": {
+      "name": "Древние артефакты",
+      "resourceKey": "ancient_relics",
+      "tickMs": 4000,
+      "baseGainPerGirl": 0.3,
+      "statWeights": { "magic": 25, "luck": 30, "rare_find": 30 },
+      "professionBonusKeywords": ["археол", "исследов", "учён", "маг", "жриц"],
+      "upfrontFoodPerGirl": 12
+    },
+    "gems": {
+      "name": "Драгоценные камни",
+      "resourceKey": "gems",
+      "tickMs": 3500,
+      "baseGainPerGirl": 0.5,
+      "statWeights": { "luck": 35, "rare_find": 25, "harvest": 15 },
+      "professionBonusKeywords": ["горня", "шахт", "геол", "ювел"],
+      "upfrontFoodPerGirl": 10
+    }
+  },
+  "consumption": {
+    "consumptionTickMs": 40000,
+    "foodPerGirlPerConsumption": 3
+  }
+}
