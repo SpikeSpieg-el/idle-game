@@ -2437,12 +2437,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (event.target.classList.contains('craft-button') && recipeCard && !recipeCard.classList.contains('disabled')) {
                     openGirlSelectionModal(recipeCard.dataset.recipeId);
                 }
-                const chip = event.target.closest('.res-chip');
-                if (chip) {
-                    const key = chip.getAttribute('data-res');
-                    const meta = resourceMeta[key] || { name: key, source: 'Источник неизвестен' };
-                    showCustomAlert(`<strong>${meta.name}</strong><br>${meta.source}`);
-                }
             });
         }
         
@@ -2839,10 +2833,10 @@ document.addEventListener('DOMContentLoaded', () => {
         const modal = document.getElementById('resource-info-modal');
         const body = document.getElementById('resource-info-body');
         
-        const resourceName = resourceKey.replace('_', ' ');
+        const resourceData = resourceMeta[resourceKey];
         
         body.innerHTML = `
-            <h3>📍 Где добыть: ${resourceName}</h3>
+            <h3>📍 Где добыть: ${resourceData.name} ${resourceData.icon}</h3>
             <div class="resource-sources-list">
                 ${sources.map(source => `
                     <div class="resource-source-item">
